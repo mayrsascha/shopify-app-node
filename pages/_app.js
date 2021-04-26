@@ -8,6 +8,9 @@ import { Redirect } from "@shopify/app-bridge/actions";
 import "@shopify/polaris/dist/styles.css";
 import translations from "@shopify/polaris/locales/en.json";
 
+import ClientRouter from '../components/client_router';
+import RoutePropagator from '../components/route_propagator';
+
 function userLoggedInFetch(app) {
   const fetchFunction = authenticatedFetch(app);
 
@@ -61,6 +64,8 @@ class MyApp extends App {
             forceRedirect: true,
           }}
         >
+          <ClientRouter />
+          <RoutePropagator />
           <MyProvider Component={Component} {...pageProps} />
         </Provider>
       </AppProvider>
